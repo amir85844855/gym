@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, sans-serif;
+      direction: rtl;
+      background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url(images/bk.jpg) center center / cover fixed no-repeat;
+      color: #222;
+    }
+
+    .page-overlay {
+      min-height: 100vh;
+      padding: 30px 15px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      padding: 70px 20px;
+      text-align: center;
+      color: #fff;
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('images/hero-bg.jpg') center/cover no-repeat;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    }
+
+    .logo {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid rgba(255,255,255,0.85);
+      margin-bottom: 18px;
+      background: #fff;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 2.2rem;
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 1.05rem;
+      color: #f1f1f1;
+    }
+
+    .card {
+      background: rgba(185, 192, 255, 0.96);
+      margin-top: 22px;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.14);
+      backdrop-filter: blur(4px);
+    }
+
+    .section-title {
+      margin-top: 0;
+      margin-bottom: 18px;
+      font-size: 1.4rem;
+      color: #111;
+      border-right: 5px solid #e63946;
+      padding-right: 10px;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .links a,
+    .phone-list a {
+      text-decoration: none;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #e63946;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      transition: 0.2s;
+      box-shadow: 0 6px 16px rgba(230,57,70,0.25);
+    }
+
+    .btn:hover {
+      background: #c81d2c;
+      transform: translateY(-2px);
+    }
+
+    .phone-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .phone-box {
+      background: #f4f4f4;
+      border-radius: 14px;
+      padding: 14px 18px;
+      display: inline-block;
+      color: #111;
+      font-weight: bold;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 16px;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.14);
+      transition: transform 0.2s, box-shadow 0.2s;
+      background: #ddd;
+    }
+
+    @media (max-width: 900px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+
+    .big-image {
+      width: 100%;
+      max-height: 780px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.82);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      padding: 20px;
+    }
+
+    .modal img {
+      max-width: 95%;
+      max-height: 90vh;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        padding: 50px 15px;
+      }
+
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+
+      .gallery img {
+        height: 170px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-overlay">
+    <div class="container">
+
+      <section class="hero">
+        <img src="images/logo.PNG" alt="لوگو باشگاه" class="logo">
+        <h1>MAHYAR SPORT</h1>
+        <p>ژیمناستیک،پارکور،تکواندو،برکینگ،بازی و ورزش</p>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">درباره باشگاه</h2>
+        <p>
+مدیر باشگاه مهیار اسپرت 
+ارشد تربیت بدنی و علوم ورزشی 
+دانشجویی دکترای تربیت بدنی 
+کارمند آموزش و پرورش استان زنجان 
+۲۵ سال سابقه مربیگری ژیمناستیک هنری 
+۱۵ سال سابقه مدیریت باشگاه های ورزشی 
+دارنده ۱۰ مقاله برترکشور و۴ مقاله بین المللی
+مولف کتابهای آموزشی در زمینه کودک و ورزش 
+با بیش از ۳۷ سال سابقه ورزشی و داوری
+        </p>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">لینک‌ها</h2>
+        <div class="links">
+          <a class="btn" href=https://instagram.com/mahyar_sporty target="_blank">اینستاگرام</a>
+          <a class="btn" href=https://eitaa.com/joinchat/4214293715Cebff3a8b35 target="_blank">ایتا</a>
+
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">شماره‌های تماس</h2>
+        <div class="phone-list">
+          <a href="tel:09191457047" class="phone-box">tel 1: 09191457047</a>
+          <a href="tel:09001457047" class="phone-box">tel 2: 09001457047</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">مدارک و گواهی ها</h2>
+        <div class="gallery">
+          <img src="images/c1.jpg" alt="c1" onclick="openModal(this.src)">
+          <img src="images/c2.jpg" alt="c2" onclick="openModal(this.src)">
+          <img src="images/c3.jpg" alt="c3" onclick="openModal(this.src)">
+          <img src="images/c4.jpg" alt="c4" onclick="openModal(this.src)">
+          <img src="images/c5.jpg" alt="c5" onclick="openModal(this.src)">
+          <img src="images/c6.jpg" alt="c6" onclick="openModal(this.src)">
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title"></h2>
+        <img src="images/main.jpg" alt="main" class="big-image">
+      </section>
+
+    </div>
+  </div>
+
+  <div class="modal" id="imageModal" onclick="closeModal()">
+    <img id="modalImg" src="" alt="نمایش بزرگ تصویر">
+  </div>
+
+  <script>
+    function openModal(src) {
+      document.getElementById('modalImg').src = src;
+      document.getElementById('imageModal').classList.add('show');
+    }
+
+    function closeModal() {
+      document.getElementById('imageModal').classList.remove('show');
+    }
+  </script>
+</body>
+</html>
